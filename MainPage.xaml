@@ -1,0 +1,31 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="farsa.MainPage">
+
+    <VerticalStackLayout FlowDirection="RightToLeft" Padding="20" Spacing="10">
+
+        <Entry x:Name="TaskEntry"
+               Placeholder="تسک" />
+
+        <Button Text="اضافه کردن"
+                Clicked="AddTask_Clicked" />
+
+        <CollectionView x:Name="TasksCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" Padding="5">
+                        <Label Text="{Binding}"
+                       VerticalOptions="Center" />
+
+                        <Button Grid.Column="1"
+                        Text="پاک کردن"
+                        Clicked="DeleteTask_Clicked"
+                        CommandParameter="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
